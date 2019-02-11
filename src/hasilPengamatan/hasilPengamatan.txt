@@ -1,0 +1,30 @@
+Nama  : Andre M Hasibuan
+NIM   : 11S16038
+Kelas : 13TI 2
+
+Praktikum SPT Multithreading
+
+Hasil Pengamatan :
+
+1. PrimeCounter tanpa konkurensi
+   Data variabel max -> 1.000L menyelesaikan perhitungan jumlah bilangan prima selama 0 detik
+                        10.000L menyelesaikan perhitungan jumlah bilangan prima selama 0 detik
+                        100.000L menyelesaikan perhitungan jumlah bilangan prima selama 3 detik
+                        1.000.000L menyelesaikan perhitungan jumlah bilangan prima selama 231 detik (3 menit 51 detik)
+
+1. PrimeCounter dengan konkurensi
+   Data variabel max -> 10L menyelesaikan perhitungan jumlah bilangan prima selama 0 detik
+                        100L menyelesaikan perhitungan jumlah bilangan prima selama 0 detik
+                        1.000L menyelesaikan perhitungan jumlah bilangan prima selama 0 detik
+                        10.000L menyelesaikan perhitungan jumlah bilangan prima selama 0 detik
+                        100.000L menyelesaikan perhitungan jumlah bilangan prima selama 3 detik
+                        1.000.000L menyelesaikan perhitungan jumlah bilangan prima selama 221 detik (3 menit 41 detik)
+
+Penjelasan : 
+    Perhitungan jumlah bilangan prima dalam dengan rentang variabel max dari 0 - 10000 terlihat sama dengan waktu 0 detik dan 3 detik pada 100000L.
+    Sedangkan pada saat variabel max 1000000L, terlihat perbedaan waktu, sebesar 10 detik.
+    Artinya, banyaknya jumlah data yang akan diolah akan berdampak pada perbedaan lamanya proses pengolahan data antara program dengan konkurensi dan tanpa konkurensi.
+    Hal ini disebabkan karena pada program tanpa konkurensi, pengecekan setiap data dilakukan secara sekuensial.
+    Sedangkan pada program dengan konkurensi dilakukan partisi data yang akan diolah menjadi 4 bagian.
+    Sehingga program berjalan dengan paralel dan pengecekan bisa lebih cepat dan efisien.
+    Maka, semakin banyak partisi data atau semakin banyak program paralel yang berjalan akan semakin cepat dan efisien, atau disebut dengan "devide and conquer".
